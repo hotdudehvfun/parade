@@ -13,7 +13,21 @@ if ($conn->connect_error)
 } 
 echo "Connected successfully";
 
-$key = $_POST['key'];
-print_r(json_encode($_POST));
 
+
+
+//insert into parade (paradeDate,paradeCoy,paradeHtml,paradeJson) values("2018-1-1","a","html","json");
+
+$stmt=$conn->prepare("insert into parade (paradeDate,paradeCoy,paradeHtml,paradeJson) values(?,?,?,?)");
+$stmt->bind_param("ssss", $paradeDate, $paradeCoy, $paradeHtml,$paradeJson);
+$paradeDate = $_POST['paradeDate'];
+$paradeCoy = $_POST['paradeCoy'];
+$paradeHtml = $_POST['paradeHtml'];
+$paradeJson = $_POST['paradeJson'];
+$stmt->execute();
+
+$result=$stmt->affected_rows;
+$stmt->close();
+$conn->close();
+echo "Affected rows:".$result;
 ?>
