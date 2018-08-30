@@ -18,10 +18,10 @@ if ($conn->connect_error)
 } 
 echo "Connected successfully 1";
 
-$paradeDate='2018-2-2';
-$paradeCoy='E';
-$paradeHtml='helllo html';
-$paradeJson='json hello';
+$paradeDate=$_POST['paradeDate'];
+$paradeCoy=$_POST['paradeCoy'];
+$paradeHtml=$_POST['paradeHtml'];
+$paradeJson=$_POST['paradeJson'];
 
 $sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."',".  "'".$paradeCoy."',".  "'".$paradeHtml."'," . "'".$paradeJson."')";
 
