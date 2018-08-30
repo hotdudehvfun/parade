@@ -16,6 +16,7 @@ echo "Connected successfully";
 
 try
 {
+	echo "sql try";
 	// $paradeDate = $_POST['paradeDate'];
 // $paradeCoy = $_POST['paradeCoy'];
 // $paradeHtml = $_POST['paradeHtml'];
