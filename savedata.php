@@ -30,7 +30,7 @@ $stmt=$conn->prepare("insert into parade (paradeDate,paradeCoy,paradeHtml,parade
 // $paradeCoy = $_POST['paradeCoy'];
 // $paradeHtml = $_POST['paradeHtml'];
 // $paradeJson = $_POST['paradeJson'];
-echo "executing";
+echo "executing".$conn;
 $stmt->execute();
 $result=$stmt->affected_rows;
 $stmt->close();
