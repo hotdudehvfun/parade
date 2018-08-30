@@ -16,7 +16,9 @@ if ($conn->connect_error)
 {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully 1";
+// echo "Connected successfully";
+
+$echoArray=array();
 
 $paradeDate=$_POST['paradeDate'];
 $paradeCoy=$_POST['paradeCoy'];
@@ -27,12 +29,13 @@ $sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES
 
 if ($conn->query($sql) === TRUE)
 {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+	$echoArray['success_msg']="Parade statement successfully sent!!!";
+	$echoArray['success']=true;
+} else
+{
+    $echoArray['error_msg']="Error: " . $sql . "<br>" . $conn->error;
+    $echoArray['success']=false;
 }
-
-
 $conn->close();
-
+echo json_encode($echoArray);
 ?>
