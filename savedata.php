@@ -23,7 +23,7 @@ $paradeCoy='E';
 $paradeHtml='helllo html';
 $paradeJson='json hello';
 
-$sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."'".  "'".$paradeCoy."'".  "'".$paradeHtml."'" . "'".$paradeJson."')";
+$sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."',".  "'".$paradeCoy."',".  "'".$paradeHtml."'," . "'".$paradeJson."')";
 
 if ($conn->query($sql) === TRUE)
 {
