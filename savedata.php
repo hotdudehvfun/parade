@@ -14,8 +14,12 @@ if ($conn->connect_error)
 } 
 echo "Connected successfully 1";
 
-$sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson)
-VALUES ('2018-1-1', 'D', 'html','json')";
+$paradeDate='2018-2-2';
+$paradeCoy='E';
+$paradeHtml='helllo html';
+$paradeJson='json hello';
+
+$sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."'".  "'".$paradeCoy."'".  "'".$paradeHtml."'" . "'".$paradeJson."')";
 
 if ($conn->query($sql) === TRUE)
 {
