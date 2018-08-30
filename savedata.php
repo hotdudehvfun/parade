@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 $servername = "den1.mysql6.gear.host:3306";
 $username = "mydb40";
 $password = "123456#";
