@@ -17,7 +17,7 @@ echo "Connected successfully";
 try
 {
 	echo "sql try";
-	// $paradeDate = $_POST['paradeDate'];
+// $paradeDate = $_POST['paradeDate'];
 // $paradeCoy = $_POST['paradeCoy'];
 // $paradeHtml = $_POST['paradeHtml'];
 // $paradeJson = $_POST['paradeJson'];
@@ -30,11 +30,12 @@ $stmt=$conn->prepare("insert into parade (paradeDate,paradeCoy,paradeHtml,parade
 // $paradeCoy = $_POST['paradeCoy'];
 // $paradeHtml = $_POST['paradeHtml'];
 // $paradeJson = $_POST['paradeJson'];
+echo "executing";
 $stmt->execute();
 $result=$stmt->affected_rows;
 $stmt->close();
 $conn->close();
-echo "Affected rows:".$result;
+echo "Affected rows=".$result;
 
 }catch(Exception $e)
 {
