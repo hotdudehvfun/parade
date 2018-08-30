@@ -26,7 +26,7 @@ try
 	//insert into parade (paradeDate,paradeCoy,paradeHtml,paradeJson) values("2018-1-1","a","html","json");
 
 	// $stmt=$conn->prepare("insert into parade (paradeDate,paradeCoy,paradeHtml,paradeJson) values(?,?,?,?)");
-	mysqli_query($con,"SELECT * FROM parade");
+	mysqli_query($con,"show tables;");
 	echo "Affected rows: " . mysqli_affected_rows($con);
 	mysqli_close($con);
 }catch(Exception $e)
