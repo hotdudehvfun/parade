@@ -28,7 +28,7 @@ $paradeJson=$_POST['paradeJson'];
 
 //check if date and coy exists
 
-$sql="SELECT * FROM parade WHERE paradeDate=". "'".$paradeDate."'" ."AND paradeCoy="."'".$paradeCoy."'";
+$sql="SELECT * FROM parade WHERE paradeDate="."'".$paradeDate."'" ." AND paradeCoy="."'".$paradeCoy."'";
 
 if ($conn->query($sql) === TRUE)
 {
