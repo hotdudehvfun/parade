@@ -9,34 +9,36 @@ $password = "123456#";
 $db = "mydb40";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password,$db);
+ $conn = mysqli_connect($servername, $username, $password,$db);
 
 // Check connection
-if ($conn->connect_error)
+if (!$conn)
 {
     die("Connection failed: " . $conn->connect_error);
 } 
-// echo "Connected successfully";
+echo "Connected successfully 01";
 
 $echoArray=array();
-
 $paradeDate=$_POST['paradeDate'];
 $paradeCoy=$_POST['paradeCoy'];
 $paradeHtml=$_POST['paradeHtml'];
 $paradeJson=$_POST['paradeJson'];
 
+// $paradeDate="2018-1-1";
+// $paradeCoy="D";
+// $paradeHtml="new";
+// $paradeJson="new";
+
 
 //check if date and coy exists
 
 $sql="SELECT * FROM parade WHERE paradeDate="."'".$paradeDate."'" ." AND paradeCoy="."'".$paradeCoy."'";
+$result = mysqli_query($conn, $sql);
+ if (mysqli_num_rows($result) > 0)
+ {
 
-if ($conn->query($sql) === TRUE)
-{
-	//query executed 
-	if ($conn->affected_rows>0)
-	{
-		//previous statement exists update here
-		$sql = "UPDATE parade SET ";
+ 		//update row
+ 		$sql = "UPDATE parade SET ";
 		$sql.=" paradeDate="."'".$paradeDate."'";
 		$sql.=" ,paradeCoy="."'".$paradeCoy."'";
 		$sql.=" ,paradeHtml="."'".$paradeHtml."'";
@@ -45,38 +47,31 @@ if ($conn->query($sql) === TRUE)
 		$sql.=" paradeDate="."'".$paradeDate."'";
 		$sql.=" AND ";
 		$sql.=" paradeCoy="."'".$paradeCoy."'";
-
-		if ($conn->query($sql) === TRUE)
+		$updateStatus = mysqli_query($conn, $sql);
+		if ($updateStatus)
 		{
 			$echoArray['success_msg']="Parade statement updated successfully!!!";
-			$echoArray['success']=true;
-		} else
+			$echoArray['success']=true;			
+		}else
 		{
-		    $echoArray['error_msg']="Error: " . $sql . "<br>" . $conn->error;
-		    $echoArray['success']=false;
+			$echoArray['success_msg']="Parade statement could not be updated!!!";
+			$echoArray['success']=true;
 		}
-	}else
+}else
 	{
-		//no previous record insert new statement
-		$sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."',".  "'".$paradeCoy."',".  "'".$paradeHtml."'," . "'".$paradeJson."')";
-
-		if ($conn->query($sql) === TRUE)
-		{
-			$echoArray['success_msg']="Parade statement sent successfully !!!";
-			$echoArray['success']=true;
-		} else
-		{
-		    $echoArray['error_msg']="Error: " . $sql . "<br>" . $conn->error;
-		    $echoArray['success']=false;
-		}
-	}
-}
-else
-{
-	//query did not execute
-	$echoArray['error_msg']="Error: " . $sql . "<br>" . $conn->error;
-    $echoArray['success']=false;	
-}
-$conn->close();
+	 //insert new row
+	 $sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."',".  "'".$paradeCoy."',".  "'".$paradeHtml."'," . "'".$paradeJson."')";
+	$result = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($result)>0)
+			{
+				$echoArray['success_msg']="Parade statement sent successfully!!!";
+				$echoArray['success']=true;			
+			}else
+			{
+				$echoArray['success_msg']="Parade statement could not be sent!!!";
+				$echoArray['success']=true;
+			}
+	 }
+ mysqli_close($conn);
 echo json_encode($echoArray);
 ?>
