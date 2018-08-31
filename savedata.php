@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
 
 $servername = "den1.mysql6.gear.host:3306";
 $username = "mydb40";
@@ -16,7 +16,7 @@ if (!$conn)
 {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully 01";
+//echo "Connected successfully 01";
 
 $echoArray=array();
 $paradeDate=$_POST['paradeDate'];
@@ -72,6 +72,6 @@ $result = mysqli_query($conn, $sql);
 				$echoArray['success']=true;
 			}
 	 }
- mysqli_close($conn);
+mysqli_close($conn);
 echo json_encode($echoArray);
 ?>
