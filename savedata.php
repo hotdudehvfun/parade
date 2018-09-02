@@ -23,6 +23,8 @@ $paradeDate=$_POST['paradeDate'];
 $paradeCoy=$_POST['paradeCoy'];
 $paradeHtml=$_POST['paradeHtml'];
 $paradeJson=$_POST['paradeJson'];
+echo "json=".$paradeJson;
+
 
 // $paradeDate="2018-1-1";
 // $paradeCoy="D";
