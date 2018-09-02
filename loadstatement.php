@@ -22,7 +22,7 @@ $echoArray=array();
 //$paradeDate=$_POST['paradeDate'];
 //$paradeCoy=$_POST['paradeCoy'];
 
-$paradeDate="2018-9-1";
+$paradeDate="2018-9-2";
 $paradeCoy="A";
 // $paradeHtml="new";
 // $paradeJson="new";
