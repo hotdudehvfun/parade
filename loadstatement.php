@@ -19,11 +19,11 @@ if (!$conn)
 //echo "Connected successfully 01";
 
 $echoArray=array();
-//$paradeDate=$_POST['paradeDate'];
-//$paradeCoy=$_POST['paradeCoy'];
+$paradeDate=$_POST['paradeDate'];
+$paradeCoy=$_POST['paradeCoy'];
 
-$paradeDate="2018-9-2";
-$paradeCoy="A";
+// $paradeDate="2018-9-2";
+// $paradeCoy="A";
 // $paradeHtml="new";
 // $paradeJson="new";
 //check if date and coy exists
