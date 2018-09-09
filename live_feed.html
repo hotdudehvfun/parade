@@ -1,0 +1,119 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style type="text/css">
+#slideshow
+{
+  margin: 80px auto;
+  position: relative;
+  width: 80%;
+  height: auto;
+  padding: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+
+</style>
+</head>
+<body>
+<div id="slideshow">
+   <div id="current">
+     Loading feeds.....
+   </div>
+</div>
+
+<script type="text/javascript">
+var data=["Pretty cool eh? This slide is proof the content can be anything.",
+"this is another line",
+"this is 3rd line"];
+var feedTimer=null;
+var textTimer1=null,textTimer2=null;
+var speed=50;
+var pos=0;
+
+document.addEventListener('DOMContentLoaded',function(){
+	getXML();
+});
+
+function getXML()
+{
+	var xhttp = new XMLHttpRequest();
+ 	xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200)
+    {
+    	handleFeedXml(this);
+    }
+  };
+  xhttp.open("GET", "https://raw.githubusercontent.com/hotdudehvfun/parade/master/live_feed.xml", true);
+  xhttp.send();
+}
+function handleFeedXml(xml)
+{
+	var parser = new DOMParser();
+	xmlDoc = parser.parseFromString(xml.responseText,"text/xml");
+	var feeds=xmlDoc.getElementsByTagName('feed');
+	data=[];
+	for (var i = 0; i < feeds.length; i++)
+	{
+		data.push(feeds[i].innerHTML.trim());
+	}
+	setTimeout(function()
+	{
+		startLiveFeed();
+	},500)
+}
+function startLiveFeed()
+{
+	updateFeed();
+}
+function updateFeed()
+{
+	var div=document.getElementById('current');
+	clearInterval(textTimer1);
+	var currentText=div.innerHTML;
+	var i=0,len=currentText.length;
+	pos++;
+	if (pos>=data.length)
+	{
+		pos=0;
+	}
+	var newText=data[pos];
+	textTimer1=setInterval(function()
+	{
+		div.innerHTML=currentText.substring(0,len);
+		len--;
+		if (len<=0)
+		{
+			clearInterval(textTimer1);
+			//set new text
+			setNewText(newText);
+
+		}
+	},speed);
+}
+function setNewText(text)
+{
+	var div=document.getElementById('current');
+	clearInterval(textTimer2);
+	var i=0;
+	textTimer2=setInterval(function()
+	{
+		div.innerHTML=text.substring(0,i++);
+		if (i>text.length)
+		{
+			clearInterval(textTimer2);
+			setTimeout(function()
+			{
+				updateFeed();
+			},1000);
+		}
+	},speed);
+}
+
+
+</script>
+</body>
+</html>
