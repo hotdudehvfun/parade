@@ -1,4 +1,6 @@
 <live_feed>
-<feed>this is feed1</feed>
-<feed>this is feed2</feed>
+<feed>this is a live feed</feed>
+<feed>another live feed text</feed>
+<feed>hello see me i am a live feed from xml</feed>
+<feed>i am easy to update directly from xml</feed>
 </live_feed>
