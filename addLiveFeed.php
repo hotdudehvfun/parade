@@ -6,7 +6,7 @@ $dom = new DomDocument();
 $dom->load('live_feed.xml');
 
 // Apply some modification
-$parent = $dom->getElementsByTagName('live_feed')[0];
+$parent = $dom->getElementsByTagName('live_feed')->item(0);
 $node = $dom->createElement("feed","value");
 $parent->appendChild($node);
 // Save the new version of the file
