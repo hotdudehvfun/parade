@@ -1,7 +1,9 @@
 <?php 
 // open and load a XML file
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 $dom = new DomDocument();
-$dom->load('http://paradestatement.gearhostpreview.com/live_feed.xml');
+$dom->load('live_feed.xml');
 
 // Apply some modification
 $parent = $dom->getElementsByTagName('live_feed')[0];
