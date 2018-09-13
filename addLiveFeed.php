@@ -5,7 +5,7 @@ ini_set('display_errors', '1');
 $dom = new DomDocument();
 $dom->load('live_feed.xml');
 
-$value='123';//$_POST['value'];
+$value="12";//$_POST['value'];
 
 // Apply some modification
 $parent = $dom->getElementsByTagName('live_feed')->item(0);
