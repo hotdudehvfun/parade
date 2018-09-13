@@ -1,7 +1,7 @@
 <?php
 
-// error_reporting(E_ALL);
-// ini_set('display_errors', '1');
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 $servername = "den1.mysql6.gear.host:3306";
 $username = "mydb40";
@@ -29,7 +29,7 @@ $username=$_POST['username'];
 	//insert new row
 $sql = "INSERT INTO status (type, text, image,time,username) VALUES "."( '".$type."',".  "'".$text."',".  "'".$image."'," . "'".$time."',"."'".$username."')";
 	$result = mysqli_query($conn, $sql);
-			if (mysqli_num_rows($result)>0)
+			if ($result)
 			{
 				$echoArray['success_msg']="Status posted!!!";
 				$echoArray['success']=true;			
