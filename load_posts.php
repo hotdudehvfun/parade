@@ -20,7 +20,7 @@ if (!$conn)
 
 $echoArray=array();
 
-$sql="select * from status inner join users on status.username=users.username;";
+$sql="select * from status inner join users on status.username=users.username order by time desc;";
 $result = mysqli_query($conn, $sql);
  if (mysqli_num_rows($result) > 0)
  {
