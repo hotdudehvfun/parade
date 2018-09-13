@@ -26,7 +26,7 @@ $image=$_POST['image'];
 $time=$_POST['time'];
 $username=$_POST['username'];
 
-	//insert new row
+//insert new row
 $sql = "INSERT INTO status (type, text, image,time,username) VALUES "."( '".$type."',".  "'".$text."',".  "'".$image."'," . "'".$time."',"."'".$username."')";
 	$result = mysqli_query($conn, $sql);
 			if ($result)
@@ -38,6 +38,7 @@ $sql = "INSERT INTO status (type, text, image,time,username) VALUES "."( '".$typ
 				$echoArray['success_msg']="Status could not be posted!!!";
 				$echoArray['success']=false;
 			}
+$echoArray['sql']=$sql;
 mysqli_close($conn);
 echo json_encode($echoArray);
 ?>
