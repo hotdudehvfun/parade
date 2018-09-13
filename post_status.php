@@ -1,7 +1,7 @@
 <?php
 
-// error_reporting(E_ALL);
-// ini_set('display_errors', '1');
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 $servername = "den1.mysql6.gear.host:3306";
 $username = "mydb40";
@@ -36,7 +36,7 @@ $sql = "INSERT INTO status (type, text, image,time,username) VALUES "."( '".$typ
 			}else
 			{
 				$echoArray['success_msg']="Status could not be posted!!!";
-				$echoArray['success']=true;
+				$echoArray['success']=false;
 			}
 mysqli_close($conn);
 echo json_encode($echoArray);
