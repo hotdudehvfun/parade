@@ -17,7 +17,6 @@ if (!$conn)
     die("Connection failed: " . $conn->connect_error);
 }
 
-$value=$_POST["value"];
 $id=$_POST["id"];
 $sql="delete from feeds where id=".$id;
 $result = mysqli_query($conn, $sql);
