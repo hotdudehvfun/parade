@@ -10,6 +10,7 @@ $value="12";//$_POST['value'];
 // Apply some modification
 $parent = $dom->getElementsByTagName('live_feed')->item(0);
 $child=$dom->createElement("feed",$value);
-echo $child->nodeValue;
+$parent->appendChild($child);
+echo $parent->length;
 
 ?>
