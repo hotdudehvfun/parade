@@ -17,7 +17,7 @@ if (!$conn)
     die("Connection failed: " . $conn->connect_error);
 }
 
-$value="testing";//$_POST["value"];
+$value=$_POST["value"];
 
 $sql="insert into feeds(feed,state) values('".$value."',true)";
 $result = mysqli_query($conn, $sql);
