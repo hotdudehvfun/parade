@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0)
 }else
 {
 	$echoArray['success_msg']="Nothing to display...";
-	$echoArray['success']=false;	
+	$echoArray['success']=true;	
 }
 echo json_encode($echoArray);
 ?>
