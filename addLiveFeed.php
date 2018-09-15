@@ -11,6 +11,6 @@ $value="12";//$_POST['value'];
 $parent = $dom->getElementsByTagName('live_feed')->item(0);
 $child=$dom->createElement("feed",$value);
 $parent->appendChild($child);
-echo $parent->length();
+echo $dom->save('live_feed.xml');
 
 ?>
