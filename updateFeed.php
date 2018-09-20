@@ -1,7 +1,7 @@
-<?php 
+<?php
 // open and load a XML file
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 $servername = "den1.mysql6.gear.host:3306";
 $username = "mydb40";
@@ -19,11 +19,12 @@ if (!$conn)
 
 $value=$_POST["value"];
 $id=$_POST["id"];
-$sql="update feeds set feed='".$value."' where id=".$id;
+$echoArray['data']="data=".$value."|".$id;
+$sql="UPDATE feeds set feed="."'".$value."'"." where id=".$id;
 $result = mysqli_query($conn, $sql);
 if ($result)
 {
-	$echoArray['success']=true;			
+	$echoArray['success']=true;
 }else
 {
 	$echoArray['success']=false;
