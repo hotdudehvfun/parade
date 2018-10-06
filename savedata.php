@@ -36,9 +36,9 @@ $paradeJson=$_POST['paradeJson'];
 $sql=sprintf("INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES('%s', '%s', '%s',\"%s\")",$paradeDate,,$paradeCoy,$paradeHtml,$paradeJson);
 if(mysqli_query($conn, $sql))
 {
-    echo "Records inserted successfully.";
+    echo " Records inserted successfully.";
 }else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+    echo " ERROR: Could not able to execute $sql. " . mysqli_error($conn);
 }	 
 mysqli_close($conn);
 //echo json_encode($echoArray);
