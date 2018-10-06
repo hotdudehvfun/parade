@@ -56,7 +56,7 @@ $result = mysqli_query($conn, $sql);
 		}else
 		{
 			$echoArray['success_msg']="Parade statement could not be updated!!!";
-			$echoArray['success']=true;
+			$echoArray['success']=false;
 		}
 }else
 	{
@@ -71,7 +71,7 @@ $result = mysqli_query($conn, $sql);
 			}else
 			{
 				$echoArray['success_msg']="Parade statement could not be sent!!!";
-				$echoArray['success']=true;
+				$echoArray['success']=false;
 			}
 	 }
 mysqli_close($conn);
