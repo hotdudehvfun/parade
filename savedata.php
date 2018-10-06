@@ -19,10 +19,10 @@ if (!$conn)
 //echo "Connected successfully 01";
 
 $echoArray=array();
-$paradeDate= mysql_real_escape_string($_POST['paradeDate']);
-$paradeCoy= mysql_real_escape_string($_POST['paradeCoy']);
-$paradeHtml= mysql_real_escape_string($_POST['paradeHtml']);
-$paradeJson= mysql_real_escape_string($_POST['paradeJson']);
+$paradeDate=$_POST['paradeDate'];
+$paradeCoy=$_POST['paradeCoy'];
+$paradeHtml=$_POST['paradeHtml'];
+$paradeJson=$_POST['paradeJson'];
 
 $echoArray['json']=$paradeJson;
 
