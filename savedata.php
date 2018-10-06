@@ -19,10 +19,11 @@ if (!$conn)
 //echo "Connected successfully 01";
 
 $echoArray=array();
-$paradeDate=$_POST['paradeDate'];
-$paradeCoy=$_POST['paradeCoy'];
-$paradeHtml=$_POST['paradeHtml'];
-$paradeJson=$_POST['paradeJson'];
+$paradeDate="2018-10-06";//$_POST['paradeDate'];
+$paradeCoy="A";//$_POST['paradeCoy'];
+$paradeHtml="none";//$_POST['paradeHtml'];
+$paradeJson="json";//$_POST['paradeJson'];
+
 $echoArray['json']=$paradeJson;
 
 // $paradeDate="2018-1-1";
