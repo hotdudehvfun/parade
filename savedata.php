@@ -64,6 +64,7 @@ $result = mysqli_query($conn, $sql);
 	 //insert new row
 	 //$sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."',".  "'".$paradeCoy."',".  "'".$paradeHtml."'," . "'".$paradeJson."')";
 	 $sql="INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES('$paradeDate', '$paradeCoy', '$paradeHtml','$paradeJson')";
+	$echoArray["sql"]=$sql;
 	$result = mysqli_query($conn, $sql);
 	 $echoArray["result"]=$result;
 			if (mysqli_num_rows($result)>0)
