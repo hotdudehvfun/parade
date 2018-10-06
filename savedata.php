@@ -5,7 +5,7 @@ ini_set('display_errors', '1');
 
 $servername = "den1.mysql6.gear.host:3306";
 $username = "mydb40";
-$password = "123456#";
+$password = "123456";
 $db = "mydb40";
 
 // Create connection
