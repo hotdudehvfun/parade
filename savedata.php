@@ -15,7 +15,7 @@ $db = "mydb40";
 if (!$conn)
 {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 //echo "Connected successfully 01";
 
 $echoArray=array();
@@ -53,7 +53,7 @@ $result = mysqli_query($conn, $sql);
 		if ($updateStatus)
 		{
 			$echoArray['success_msg']="Parade statement updated successfully!!!";
-			$echoArray['success']=true;			
+			$echoArray['success']=true;
 		}else
 		{
 			$echoArray['success_msg']="Parade statement could not be updated!!!";
@@ -62,13 +62,14 @@ $result = mysqli_query($conn, $sql);
 }else
 	{
 	 //insert new row
-	 $sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."',".  "'".$paradeCoy."',".  "'".$paradeHtml."'," . "'".$paradeJson."')";
+	 //$sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."',".  "'".$paradeCoy."',".  "'".$paradeHtml."'," . "'".$paradeJson."')";
+	 $sql="INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES('$paradeDate', '$paradeCoy', '$paradeHtml','$paradeJson')";
 	$result = mysqli_query($conn, $sql);
 	 $echoArray["result"]=$result;
 			if (mysqli_num_rows($result)>0)
 			{
 				$echoArray['success_msg']="Parade statement sent successfully!!!";
-				$echoArray['success']=true;			
+				$echoArray['success']=true;
 			}else
 			{
 				$echoArray['success_msg']="Parade statement could not be sent!!!";
