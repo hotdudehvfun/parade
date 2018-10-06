@@ -16,7 +16,7 @@ if (!$conn)
 {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully 02";
+echo "Connected successfully 03";
 
 $echoArray=array();
 $paradeDate=$_POST['paradeDate'];
