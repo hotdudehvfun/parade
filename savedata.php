@@ -33,7 +33,7 @@ $paradeJson=$_POST['paradeJson'];
 //check if date and coy exists
  //insert new row
 	 //$sql = "INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES "."( '".$paradeDate."',".  "'".$paradeCoy."',".  "'".$paradeHtml."'," . "'".$paradeJson."')";
-$sql=sprintf("INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES('%s', '%s', '%s','%s')",$paradeDate,,$paradeCoy,$paradeHtml,mysql_real_escape_string($paradeJson));
+$sql=sprintf("INSERT INTO parade (paradeDate, paradeCoy, paradeHtml,paradeJson) VALUES('%s', '%s', '%s',\"%s\")",$paradeDate,,$paradeCoy,$paradeHtml,$paradeJson);
 if(mysqli_query($conn, $sql))
 {
     echo "Records inserted successfully.";
